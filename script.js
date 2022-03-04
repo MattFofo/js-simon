@@ -18,6 +18,7 @@
 */
 
 const eleProve = document.getElementById("prove");
+const eleBtnStart = document.getElementById("btn-start");
 
 const timer = 3000;
 const minCasualNumber = 1;
@@ -26,50 +27,53 @@ const CASUAL_NUMBERS = 5;
 
 const arrCasualNumbers = [];
 const arrUserNums = [];
-console.log(arrCasualNumbers)
-
-//ciclo per creare 5 numeri random e pusharli in un arrey
-for (let i = 0; i < CASUAL_NUMBERS; i++) {
-    let casualNumber = Math.floor(Math.random() * (maxCasualNumber - minCasualNumber) ) + minCasualNumber;
-
-    arrCasualNumbers.push(casualNumber);
-
-console.log(casualNumber)
-    
-}
-
-eleProve.innerHTML = arrCasualNumbers
 
 
-setTimeout(myFunction, timer);
+
+eleBtnStart.addEventListener('click', function () {
+
+    // reset game
+    const arrCasualNumbers = [];
+    const arrUserNums = [];
+    eleProve.style.display = "block";
 
 
-function myFunction() {
-    eleProve.style.display = "none";
-    let score = 0;
-
-    //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
+    //ciclo per creare 5 numeri random e pusharli in un arrey
     for (let i = 0; i < CASUAL_NUMBERS; i++) {
-        const userNum = parseInt(prompt('inserisci il primo numero'));
+        let casualNumber = Math.floor(Math.random() * (maxCasualNumber - minCasualNumber) ) + minCasualNumber;
+
+        arrCasualNumbers.push(casualNumber);
     
-        if (arrCasualNumbers[i] == userNum) {
-            arrUserNums.push(userNum);
-            score++;
-    
+    }
+
+    eleProve.innerHTML = arrCasualNumbers
+
+
+    setTimeout(gameSetup, timer);
+
+
+
+    function gameSetup() {
+        eleProve.style.display = "none";
+        let score = 0;
+
+        //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
+        for (let i = 0; i < CASUAL_NUMBERS; i++) {
+            const userNum = parseInt(prompt('inserisci il primo numero'));
+        
+            if (arrCasualNumbers[i] == userNum) {
+                arrUserNums.push(userNum);
+                score++;
+        
+            }
         }
-        console.log(arrUserNums)
-    }
-    console.log(arrUserNums)
-    console.log(score)
-    
-    
-    //controllo se l'utente ne ha beccata almeno una
-    if (arrUserNums.length == 0) {
-        alert('mmm.. perhaps alzheimer?')
+        
+        //controllo se l'utente ne ha beccata almeno una
+        if (arrUserNums.length == 0) {
+            alert('mmm.. perhaps alzheimer?')
 
-    }else {
-        alert(`Good job, u nailed ${arrUserNums.length} numbers! Here they are: ${arrUserNums}`)
-    }
-}   
-
-
+        }else {
+            alert(`Good job, u nailed ${arrUserNums.length} numbers! Here they are: ${arrUserNums}`)
+        }
+    }         
+})
