@@ -46,7 +46,7 @@ eleBtnStart.addEventListener('click', function () {
     
     }
 
-    eleOutput.innerHTML = arrCasualNumbers
+    eleOutput.innerHTML = arrCasualNumbers //stampo i numeri dell'arrey
 
 
     setTimeout(gameSetup, timer);
@@ -55,7 +55,6 @@ eleBtnStart.addEventListener('click', function () {
 
     function gameSetup() {
         eleOutput.style.display = "none";
-        let score = 0;
 
         //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
         for (let i = 0; i < CASUAL_NUMBERS; i++) {
@@ -63,8 +62,6 @@ eleBtnStart.addEventListener('click', function () {
         
             if (arrCasualNumbers[i] == userNum) {
                 arrUserNums.push(userNum);
-                score++;
-        
             }
         }
         
