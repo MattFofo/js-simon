@@ -1,6 +1,21 @@
-#prove {
+#output {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+#btn-start {
+    width: 150px;
+    margin: 0 auto;
 }

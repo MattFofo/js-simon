@@ -17,7 +17,7 @@
  - alla fine del ciclo mostro i valori del nuovo arrey
 */
 
-const eleProve = document.getElementById("prove");
+const eleOutput = document.getElementById("output");
 const eleBtnStart = document.getElementById("btn-start");
 
 const timer = 3000;
@@ -35,7 +35,7 @@ eleBtnStart.addEventListener('click', function () {
     // reset game
     const arrCasualNumbers = [];
     const arrUserNums = [];
-    eleProve.style.display = "block";
+    eleOutput.style.display = "block";
 
 
     //ciclo per creare 5 numeri random e pusharli in un arrey
@@ -46,7 +46,7 @@ eleBtnStart.addEventListener('click', function () {
     
     }
 
-    eleProve.innerHTML = arrCasualNumbers
+    eleOutput.innerHTML = arrCasualNumbers
 
 
     setTimeout(gameSetup, timer);
@@ -54,7 +54,7 @@ eleBtnStart.addEventListener('click', function () {
 
 
     function gameSetup() {
-        eleProve.style.display = "none";
+        eleOutput.style.display = "none";
         let score = 0;
 
         //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
