@@ -40,7 +40,7 @@ eleBtnStart.addEventListener('click', function () {
 
     //ciclo per creare 5 numeri random e pusharli in un arrey
     for (let i = 0; i < CASUAL_NUMBERS; i++) {
-        let casualNumber = Math.floor(Math.random() * (maxCasualNumber - minCasualNumber) ) + minCasualNumber;
+        let casualNumber = Math.floor(Math.random() * (maxCasualNumber - minCasualNumber)) + minCasualNumber;
 
         arrCasualNumbers.push(casualNumber);
     
@@ -58,7 +58,7 @@ eleBtnStart.addEventListener('click', function () {
 
         //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
         for (let i = 0; i < CASUAL_NUMBERS; i++) {
-            const userNum = parseInt(prompt('inserisci il primo numero'));
+            const userNum = parseInt(prompt('inserisci il numero che si trovava nella posizione:' + '' + (i + 1)));
         
             if (arrCasualNumbers[i] == userNum) {
                 arrUserNums.push(userNum);
