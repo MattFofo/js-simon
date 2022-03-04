@@ -46,6 +46,7 @@ setTimeout(myFunction, timer);
 
 function myFunction() {
     eleProve.style.display = "none";
+    let score = 0;
 
     //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
     for (let i = 0; i < CASUAL_NUMBERS; i++) {
@@ -53,11 +54,22 @@ function myFunction() {
     
         if (arrCasualNumbers[i] == userNum) {
             arrUserNums.push(userNum);
+            score++;
     
         }
         console.log(arrUserNums)
     }
     console.log(arrUserNums)
-}
+    console.log(score)
+    
+    
+    //controllo se l'utente ne ha beccata almeno una
+    if (arrUserNums.length == 0) {
+        alert('mmm.. perhaps alzheimer?')
+
+    }else {
+        alert(`Good job, u nailed ${arrUserNums.length} numbers! Here they are: ${arrUserNums}`)
+    }
+}   
 
 
