@@ -19,6 +19,7 @@
 
 const eleOutput = document.getElementById("output");
 const eleBtnStart = document.getElementById("btn-start");
+const eleOutputEnd = document.getElementById("output-end");
 
 const timer = 3000;
 const minCasualNumber = 1;
@@ -36,7 +37,8 @@ eleBtnStart.addEventListener('click', function () {
     const arrCasualNumbers = [];
     const arrUserNums = [];
     eleOutput.style.display = "block";
-
+    eleOutputEnd.innerHTML = '';
+    
 
     //ciclo per creare 5 numeri random e pusharli in un arrey
     for (let i = 0; i < CASUAL_NUMBERS; i++) {
@@ -55,10 +57,12 @@ eleBtnStart.addEventListener('click', function () {
 
     function gameSetup() {
         eleOutput.style.display = "none";
+        let eleOutputGame = document.createElement("div");
+        eleOutputGame.innerHTML = '';
 
         //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
         for (let i = 0; i < CASUAL_NUMBERS; i++) {
-            const userNum = parseInt(prompt('inserisci il numero che si trovava nella posizione:' + '' + (i + 1)));
+            const userNum = parseInt(prompt('inserisci il numero che si trovava nella posizione:' + ' ' + (i + 1)));
         
             if (arrCasualNumbers[i] == userNum) {
                 arrUserNums.push(userNum);
@@ -66,11 +70,11 @@ eleBtnStart.addEventListener('click', function () {
         }
         
         //controllo se l'utente ne ha beccata almeno una
-        if (arrUserNums.length == 0) {
-            alert('mmm.. perhaps alzheimer?')
+        if (arrUserNums.length == 0) {           
+            eleOutputEnd.innerHTML = 'mmm.. perhaps alzheimer?'
 
         }else {
-            alert(`Good job, u nailed ${arrUserNums.length} numbers! Here they are: ${arrUserNums}`)
+            eleOutputEnd.innerHTML = `Good job, u nailed ${arrUserNums.length} numbers! Here they are: ${arrUserNums}` 
         }
     }         
 })
