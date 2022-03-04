@@ -47,9 +47,17 @@ setTimeout(myFunction, timer);
 function myFunction() {
     eleProve.style.display = "none";
 
-    const userNum = prompt('inserisci il primo numero');
-    if (arrCasualNumbers.includes(userNum)) {
-        
-        
+    //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
+    for (let i = 0; i < CASUAL_NUMBERS; i++) {
+        const userNum = parseInt(prompt('inserisci il primo numero'));
+    
+        if (arrCasualNumbers[i] == userNum) {
+            arrUserNums.push(userNum);
+    
+        }
+        console.log(arrUserNums)
     }
+    console.log(arrUserNums)
 }
+
+
