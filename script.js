@@ -30,14 +30,15 @@ const arrCasualNumbers = [];
 const arrUserNums = [];
 
 
-
 eleBtnStart.addEventListener('click', function () {
+    
 
     // reset game
     const arrCasualNumbers = [];
     const arrUserNums = [];
     eleOutput.style.display = "block";
     eleOutputEnd.innerHTML = '';
+
     
 
     //ciclo per creare 5 numeri random e pusharli in un arrey
@@ -51,15 +52,17 @@ eleBtnStart.addEventListener('click', function () {
     eleOutput.innerHTML = arrCasualNumbers //stampo i numeri dell'arrey
 
 
+    setTimeout(() => { 
+        eleOutput.style.display = "none";
+
+    }, 2000);
+    
+
     setTimeout(gameSetup, timer);
 
-
-
+    
     function gameSetup() {
-        eleOutput.style.display = "none";
-        let eleOutputGame = document.createElement("div");
-        eleOutputGame.innerHTML = '';
-
+        
         //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
         for (let i = 0; i < CASUAL_NUMBERS; i++) {
             const userNum = parseInt(prompt('inserisci il numero che si trovava nella posizione:' + ' ' + (i + 1)));
