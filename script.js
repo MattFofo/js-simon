@@ -21,7 +21,7 @@ const eleOutput = document.getElementById("output");
 const eleBtnStart = document.getElementById("btn-start");
 const eleOutputEnd = document.getElementById("output-end");
 
-const timer = 3000;
+const timer = 4000;
 const minCasualNumber = 1;
 const maxCasualNumber = 100;
 const CASUAL_NUMBERS = 5;
@@ -46,22 +46,21 @@ eleBtnStart.addEventListener('click', function () {
         let casualNumber = Math.floor(Math.random() * (maxCasualNumber - minCasualNumber)) + minCasualNumber;
 
         arrCasualNumbers.push(casualNumber);
-    
     }
 
     eleOutput.innerHTML = arrCasualNumbers //stampo i numeri dell'arrey
 
 
     setTimeout(() => { 
-        eleOutput.style.display = "none";
+        eleOutput.style.display = "none"; //per nascondere i numeri
 
-    }, 2000);
+    }, 3000);
     
 
-    setTimeout(gameSetup, timer);
+    setTimeout(gameLogic, timer);
 
     
-    function gameSetup() {
+    function gameLogic() {
         
         //ciclo per chiedere numero all'utente e, se il numero era presente nell'arrey dei numeri generati casualmente, lo salvo in un nuovo arrey
         for (let i = 0; i < CASUAL_NUMBERS; i++) {
